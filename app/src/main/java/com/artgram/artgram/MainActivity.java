@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mAuth= FirebaseAuth.getInstance();
-        mAuthListener= new FirebaseAuth.AuthStateListener() {
+        mAuthListener=
+                new FirebaseAuth.AuthStateListener() {
 
             @Override
             public void onAuthStateChanged(FirebaseAuth firebaseAuth) {
