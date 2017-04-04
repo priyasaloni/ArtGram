@@ -77,10 +77,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.hasChild(user_id))
                 {
-                    Intent Loginintent=new Intent(LoginActivity.this,MainActivity.class);
+                    Intent Login_intent=new Intent(LoginActivity.this,MainActivity.class);
 
-                    Loginintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(Loginintent);
+                    Login_intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(Login_intent);
                 }
                 else
                 {
