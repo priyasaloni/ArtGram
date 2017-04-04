@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "935415191807",
+    "firebase_url": "https://artgram-bc45c.firebaseio.com",
+    "project_id": "artgram-bc45c",
+    "storage_bucket": "artgram-bc45c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935415191807:android:1523639bceb24243",
+        "android_client_info": {
+          "package_name": "com.artgram.artgram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "935415191807-4vne8k0olhrrc2o463ic2g105eq1mtkq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpJWFMTRkV_3aqM8t5In2CGhgD-A9FOO0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
