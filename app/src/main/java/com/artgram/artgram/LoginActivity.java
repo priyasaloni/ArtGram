@@ -35,7 +35,13 @@ public class LoginActivity extends AppCompatActivity {
         login_password= (EditText) findViewById(R.id.login_password);
         login_button = (Button) findViewById(R.id.login_button);
         signup= (TextView) findViewById(R.id.signup);
-        mAuth=FirebaseAuth.getInstance();
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent registerIntent =new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(registerIntent);
+            }
+        });        mAuth=FirebaseAuth.getInstance();
         mDatabase= FirebaseDatabase.getInstance().getReference().child("Users");
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +54,14 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(false);
+    }
     private void checklogin() {
         String login_email=login_emailid.getText().toString().trim();
         String login_pass=login_password.getText().toString().trim();
@@ -84,6 +98,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    Intent tabIntent =new Intent(LoginActivity.this,TabActivity.class);
+                    tabIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(tabIntent);
                     Toast.makeText(LoginActivity.this,"Set Up your account dude!!", Toast.LENGTH_SHORT).show();
                 }
             }

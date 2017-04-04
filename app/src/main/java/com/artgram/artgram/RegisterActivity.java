@@ -52,6 +52,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                 startRegister();
                 Intent tabIntent=new Intent(RegisterActivity.this,TabActivity.class);
+                tabIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                 startActivity(tabIntent);
 
             }

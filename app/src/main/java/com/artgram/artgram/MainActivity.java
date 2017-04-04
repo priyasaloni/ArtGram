@@ -41,10 +41,10 @@ public class MainActivity extends AppCompatActivity {
             public void onAuthStateChanged(FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser()==null)
                 {
-                    Intent Registerintent=new Intent(MainActivity.this,RegisterActivity.class);
+                    Intent Loginintent=new Intent(MainActivity.this,LoginActivity.class);
 
-                    Registerintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                   startActivity(Registerintent);
+                    Loginintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                   startActivity(Loginintent);
 
                 }
                 else
