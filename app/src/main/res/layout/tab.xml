@@ -16,6 +16,7 @@
         android:layout_height="2dp"
         android:background="@drawable/shadow" />
 
+
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:background="#ffffff"
@@ -26,5 +27,14 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@drawable/shadowbottom" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addphoto"
+        android:layout_width="71dp"
+        android:layout_height="55dp"
+        android:clickable="true"
+
+        android:tint="@color/colorAccent"
+        app:layout_anchorGravity="bottom|right|end"
+        android:layout_gravity="right"/>
 
 </LinearLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-  android:background="@color/colorBackground"
+    android:background="@drawable/doodle1"
     android:orientation="vertical"
     >
 
@@ -25,8 +25,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
+        android:padding="15dp"
         android:hint="Email address"
         android:layout_margin="15dp"
+        android:background="#FFFFFF"
         android:ems="10"
         android:id="@+id/login_emailAddress"/>
 
@@ -36,9 +38,13 @@
         android:layout_below="@+id/login_emailAddress"
         android:layout_margin="15dp"
         android:layout_width="match_parent"
+        android:padding="15dp"
+
         android:hint="Password"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
+        android:background="#FFFFFF"
+
         android:ems="10"
         android:id="@+id/login_password"
         android:layout_gravity="center_horizontal"/>
@@ -50,10 +56,11 @@
         android:layout_margin="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="LOGIN"
+        android:text="LOGIN"
         android:textSize="20dp"
-        android:background="@color/colorButton"
+        android:background="#000"
         android:id="@+id/login_button"
+        android:textColor="#FFF"
         android:layout_gravity="center_horizontal"/>
     <RelativeLayout
         android:layout_below="@id/login_button"
@@ -69,6 +76,7 @@
 
 
         android:text="No account yet? "
+        android:textColor="#000"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginStart="60dp"/>
@@ -78,7 +86,7 @@
             android:text="Create one"
             android:textSize="18dp"
             android:id="@+id/signup"
-
+            android:textStyle="bold"
             android:textColor="#000000"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/text"/>
