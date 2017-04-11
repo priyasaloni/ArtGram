@@ -23,6 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -40,9 +41,12 @@ public class PhotoUpload extends AppCompatActivity{
     private Button submitbutton;
     private Uri image_uri;
     public static final int GALLERY_REQUEST=1;
+    public static final int CAMERA_REQUEST=1;
+
     private StorageReference storage;
     private ProgressDialog upload_progress;
-
+    private FirebaseAuth mauth;
+    private DatabaseReference database;
     private static final int EXTERNAL_STORAGE_PERMISSION_CONSTANT = 100;
     private static final int REQUEST_PERMISSION_SETTING = 101;
     private boolean sentToSettings = false;
@@ -54,6 +58,8 @@ public class PhotoUpload extends AppCompatActivity{
         permissionStatus = getSharedPreferences("permissionStatus",MODE_PRIVATE);
 //        Drawable loginActivityBackground = findViewById(R.id.selectImage).getBackground();
   //      loginActivityBackground.setAlpha(127);
+        database=FirebaseDatabase.getInstance().getReference().child("Posts");
+        mauth=FirebaseAuth.getInstance();
         upload_progress=new ProgressDialog(this);
         storage= FirebaseStorage.getInstance().getReference();
         caption=(EditText)findViewById(R.id.caption);
@@ -144,7 +150,7 @@ public class PhotoUpload extends AppCompatActivity{
  {
      upload_progress.setMessage("uploading..");
      upload_progress.show();
-String caption_str=caption.getText().toString().trim();
+final String caption_str=caption.getText().toString().trim();
      if(!TextUtils.isEmpty(caption_str)&& image_uri!=null)
      {
    StorageReference image_storage=storage.child("Post_Images").child(image_uri.getLastPathSegment());
@@ -152,7 +158,16 @@ String caption_str=caption.getText().toString().trim();
              @Override
              public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                  Uri download_uri=taskSnapshot.getDownloadUrl();
+                 String user_id=mauth.getCurrentUser().getUid();
+
+                 DatabaseReference new_post=database.push();
+                 new_post.child("user_id").setValue(user_id);
+                 new_post.child("image").setValue(download_uri.toString());
+
+                 new_post.child("caption").setValue(caption_str);
                  upload_progress.dismiss();
+                 Toast.makeText(PhotoUpload.this,"Successfully uploaded",Toast.LENGTH_SHORT).show();
+                 startActivity(new Intent(PhotoUpload.this,TabActivity.class));
              }
          });
      }

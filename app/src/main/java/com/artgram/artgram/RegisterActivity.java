@@ -51,10 +51,6 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 startRegister();
-                Intent tabIntent=new Intent(RegisterActivity.this,TabActivity.class);
-                tabIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-                startActivity(tabIntent);
 
             }
         });
@@ -79,6 +75,11 @@ public class RegisterActivity extends AppCompatActivity {
                         current_user_db.child("name").setValue(name);
                         current_user_db.child("user_id").setValue(userId);
                         progress.dismiss();
+                        Intent tabIntent=new Intent(RegisterActivity.this,TabActivity.class);
+                        tabIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                        startActivity(tabIntent);
+
 
                     }
                 }
