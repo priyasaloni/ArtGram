@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-sarif-medium"
+        android:gravity="center"
+        android:text="Choose"
+        android:textColor="#000000"
+        android:textSize="18sp" />/>
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/cameraDialogButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Camera"
+            />
+
+
+        <RadioButton
+            android:id="@+id/galleryDialogButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/radioGroup2"
+            android:onClick="onRadioButtonClicked"
+            android:text="Gallery" />
+
+
+    </RadioGroup>
+</RelativeLayout>
